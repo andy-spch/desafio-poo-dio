@@ -4,56 +4,43 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Mentoria {
+public class Mentoria extends Conteudo {
 
-	private String titulo;
-	private String descricao;
-	private LocalDate cargaHoraria;
+	private LocalDate data;
+
+	@Override
+	public double calcularXp() {
+		return XP_PADRAO + 20d;
+	}
 
 	public Mentoria() {
 		super();
 	}
 
-	public Mentoria(String titulo, String descricao, LocalDate cargaHoraria) {
+	public Mentoria(LocalDate data) {
 		super();
-		this.titulo = titulo;
-		this.descricao = descricao;
-		this.cargaHoraria = cargaHoraria;
+		this.data = data;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public LocalDate getData() {
+		return data;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public LocalDate getCargaHoraria() {
-		return cargaHoraria;
-	}
-
-	public void setCargaHoraria(LocalDate cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
-	}
-	
 	// Conversão de Data no formato desejado (utilizado no exercício atual):
-	DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
-	
-	// Método de conversão de String para data, não utilizado pois vou usar o LocalDate.now() nesse exercício.
+	DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+	// Método de conversão de String para data, não utilizado pois vou usar o
+	// LocalDate.now() nesse exercício.
 	SimpleDateFormat formatoSimples = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Override
 	public String toString() {
-		return "Mentoria [titulo=" + titulo + ", descricao=" + descricao + ", cargaHoraria=" + formato.format(cargaHoraria) + "]";
+		return "Mentoria [titulo=" + getTitulo() + ", descricao=" + getDescricao() + ", cargaHoraria="
+				+ formato.format(data) + "]";
 	}
 
 }

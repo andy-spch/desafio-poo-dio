@@ -25,10 +25,6 @@ public abstract class Conteudo {
 		this.descricao = descricao;
 	}
 
-	public static double getXpPadrao() {
-		return XP_PADRAO;
-	}
-
 	@Override
 	public String toString() {
 		return "Conteudo [titulo=" + titulo + ", descricao=" + descricao + "]";
